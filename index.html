@@ -9765,13 +9765,27 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200907131952921" modified="20200907151536495" tags="" title="Lundberg2020">
+<div created="20200907131952921" modified="20200907154750400" tags="" title="Lundberg2020">
 <pre>[ext[From local explanations to global understanding with explainable AI for trees|https://www.nature.com/articles/s42256-019-0138-9.epdf?shared_access_token=RCYPTVkiECUmc0CccSMgXtRgN0jAjWel9jnR3ZoTv0O81kV8DqPb2VXSseRmof0Pl8YSOZy4FHz5vMc3xsxcX6uT10EzEoWo7B-nZQAHJJvBYhQJTT1LnJmpsa48nlgUWrMkThFrEIvZstjQ7Xdc5g%3D%3D]]
+
+&quot;//Shapley values are defined as the sequential impact of the model's output of observing each inputs feature's value, averaged over //all possible// feature orderings//&quot;
+
+&quot;Propose //Shapley additive explanation// (''SHAP'') interaction values as a richer type of local explanation.&quot;
 
 * 'SHAP analysis is better than the other 3 existing methods for explaining predictions from boosted tree models.'
 ** It overcomes the limitations of these methods: unhelpful decision path reporting; strong bias for tree depth using heuristic credit allocation; slow speed of modelling and sample variability issue with post-hoc analysis.
 
-''__TreeExplainer__'':
+
+!Take-aways
+
+!!Advantages of tree-based models
+
+* Tree-based models can be ''more accurate'', //and// ''more interpretable'' than neural networks in many applications.
+** This is due to model-mismatch effects.  
+*** The  [[bias/variance  trade-off]] in machine learning has implications for model accuracy.
+*** This trade-off also affects interpretability.
+ 
+!!''__TreeExplainer__'':
 
 * //enables the exact computation of optimal local explanations for tree-based models//
 ** (These values //can only be approximated// owing to this being an NP-hard problem space.)
@@ -9779,8 +9793,33 @@ Error message and password prompt
 * //extends local explanations to directly capture feature interactions//
 * provides a new set of tools for understanding global model structure
 ** &quot;combining many local explanations allows us to represent global structure while retaining local faithfulness&quot;
+* Impartial feature credit assignment regardless of tree depth.
+* No estimation variability 
+* Strong benchmark performance 
+* Consistency with human intuition 
 
+Results from game theory imply the Shapley values are the only way to satisfy three important properties: 
 
+** ''Local accuracy''
+*** //when approximating the original model f for a specific input x, the explanation’s attribution values should sum up to the output f(x)//
+** ''Consistency''
+*** //if a model changes so that some feature’s contribution increases or stays the same regardless of the other inputs, that input’s attribution should not decrease//
+** ''Missingness'' 
+*** //a trivial property satisfied by all previous explanation methods//
+
+&quot;''Patterns uncovered by a model are often more important than the model's prediction performance''&quot;
+
+Important features of the package:
+
+* Shapley Interaction Index
+** Interaction plots
+* Summary plots
+* Dependence plots
+* Force plots
+* Monitoring plots
+** [img[|https://media.springernature.com/m312/springer-static/image/art%3A10.1038%2Fs42256-019-0138-9/MediaObjects/42256_2019_138_Fig5_HTML.png?as=webp]]
+* Clustering using //local explanation embeddings//
+** [img[|https://media.springernature.com/m312/springer-static/image/art%3A10.1038%2Fs42256-019-0138-9/MediaObjects/42256_2019_138_Fig6_HTML.png?as=webp]]
 </pre>
 </div>
 

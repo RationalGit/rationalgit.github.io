@@ -157,6 +157,8 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/showeditpreview</li>
+
 <li>$:/state/tab-1749438307</li>
 
 <li>$:/state/tab-2065006209</li>
@@ -169,11 +171,25 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/NewTagName</li>
+
+<li>$:/temp/search</li>
+
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>CoussementEtal2017</li>
+
+<li>DevriendtEtal2021</li>
+
 <li>Lundberg2020</li>
+
+<li>Radcliffe2007</li>
+
+<li>ScullyEtal2015</li>
+
+<li>VerbekeEtal2012</li>
 
 </ul>
 </p>
@@ -9583,6 +9599,9 @@ Error message and password prompt
 <div created="20200907150517783" modified="20200907150518341" title="$:/SiteTitle">
 <pre>DS ~TiddlyWiki</pre>
 </div>
+<div created="20210205111049624" modified="20210205111049624" title="$:/state/showeditpreview">
+<pre>yes</pre>
+</div>
 <div created="20200907125101451" modified="20200907151650341" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
@@ -9595,7 +9614,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20200907150522086" list="Lundberg2020" modified="20200907151648735" title="$:/StoryList">
+<div created="20210205094033598" list="DevriendtEtal2021" modified="20210205110628446" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9643,11 +9662,11 @@ Error message and password prompt
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2048&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1152&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -9655,6 +9674,12 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20210205101725765" modified="20210205101725765" title="$:/temp/NewTagName">
+<pre></pre>
+</div>
+<div created="20210205101714980" modified="20210205101718099" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -9765,7 +9790,128 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200907131952921" modified="20200907155728185" tags="" title="Lundberg2020">
+<div created="20210205110607261" modified="20210205110625515" tags="churn" title="CoussementEtal2017">
+<pre>[ext[A comparative analysis of data preparation algorithms for customer churn prediction: a case study in the telecommunication industry|https://www.sciencedirect.com/science/article/abs/pii/S0167923616302020?via%3Dihub]]</pre>
+</div>
+<div created="20210205094013365" modified="20210208090548300" tags="churn" title="DevriendtEtal2021">
+<pre>[ext[Why you should stop predicting customer churn and start using uplift models|https://www.sciencedirect.com/science/article/pii/S0020025519312022]]
+
+&quot;uplift modeling differentiates customers whose targeting will benefit the company from other customers&quot;
+
+!Highlights
+
+* ''Maximum profit measure'' can be used for evaluating uplift models
+* Uplift models outperform churn prediction models
+
+!!!Prescriptive analytics and uplift modeling
+
+* Churn models only predict gross outcome (churn/no churn)
+* Net-effect models focus on churn intent and outcome of campaign.
+** //Churn + Cannot Be Retained// do not need to be contacted
+*** Uplift models attempt to assign 'churn contact may worsen relationship'
+
+* Traditional customer churn prediction models are subject to ''feedback loops'' ([[ScullyEtal2015]]). 
+** Selecting customers for retention campaigns factually alters customer behavior. 
+** Data collected during operation of churn model is therefore biased
+
+* Period 1:
+** Churn =  (predicted churn, targeted) + (predicted no-churn, no target)
+** No-churn = (predicted no-churn, no target) + (predicted churn, targeted (retained))
+*** retained are labeled as no-churn, but were 'retained'
+*** further learning from this will predict as 'no-churn' rather than 'retention'
+
+!!Uplift Modeling
+
+* &quot;aims at //establishing the net difference in customer behavior// that results from applying a specific treatment to customers&quot;
+* requires the availability of data that captures the behavior of the modeled system under varying conditions and decision-making scenarios
+
+!!! Evaluation
+
+* Churn models:
+** Receiver operating characteristic (''[[ROC]]'') curve and the ''lift curve''
+*** Performance: Area under the ROC curve (''AUC'') and top-decile lift
+* Uplift models:
+** Qini curves ([[Radcliffe2007]]) and uplift-per-decile plots
+*** Performance: Qini coefficient or top-decile uplift
+* Common
+** Maximum Profit
+** Maximum Profit //Uplift//
+
+!!!Churn:
+Within retention, two types of defections:
+# Total defection, the customer completely interrupts the relationship with the company 
+# Partial defection, the customer changes behaviour over time and interacts less and less with the company (e.g. purchase some goods from other companies)
+
+* No models for predicting churn consistently outperform others (VerbekeEtal2012)
+** (telecoms case study - CoussementEtal2017)
+
+!!!Uplift modeling:
+
+Four categories of customer:
+
+# //Sure things// 
+#* customers that would never churn. Downside to contacting.
+# //Lost causes// 
+#*Customers will only churn. Downsides to contacting (cost of contact)
+# //Persuadables// 
+#* Churn due to lack of intervention. Upside to contacting
+# //Do-Not-Disturbs// 
+#* Churn //only because of intervention//
+
+* &quot;uplift is the difference in outcome, e.g., customer behavior, resulting from a treatment&quot;
+
+* Historical data containing information on observed customer behavior never allows classifying customers in the four groups
+* Customers ''can'' be classified in the following four groups: 
+*#treatment responders
+*#treatment non-responders
+*#control responders 
+*#control non-responders
+
+!!!!Techniques
+
+Preprocessing
+
+# Transformation
+#* redefine a target variable
+# Define additional predictor variables
+#* incorporated within standard predictive model
+
+Transformation
+
+* [[Lai’s approach]] [33], [35] and [[pessimistic uplift modeling]] [36] use this classification to define a transformed target variable
+** Uplift modeling problem --&gt; binary classification problem
+
+Define additional predictors
+
+* Dummy variable to denote group of origin for each customer
+** model developed from
+**# original predictor variable
+**# added dummy variable
+**# additional interaction variables between predictor and dummy
+** classifier predicts churn in treatment vs. control, difference = uplift
+
+Direct vs indirect
+
+* Indirect: 2 models
+** model_uplift = model_treatment - model_control
+** Advantage: 
+***easy to implement
+** Disadvantages:
+*** independent models, lack consistency, and errors of independent estimates may reinforce each other
+
+* Direct
+** typically tree based methods that split the population into smaller segments
+*** e.g. //Classification And Regression Trees// ([[CART]]) or //Chi-Squared Automatic Interaction Detection// ([[CHAID]]) methods
+
+!!!!Evaluation
+
+* the actual outcome that is estimated is unobserved, and therefore the error made by the model cannot be measured at the individual customer level
+
+* Observe uplift for equivalent segments of the treatment and control groups, 
+** allows assessing the ''use'' and ''power'' of the model 
+** to identify groups of customers for whom treatment results in a substantial net effect.</pre>
+</div>
+<div created="20200907131952921" modified="20210205094042690" tags="" title="Lundberg2020">
 <pre>[ext[From local explanations to global understanding with explainable AI for trees|https://www.nature.com/articles/s42256-019-0138-9.epdf?shared_access_token=RCYPTVkiECUmc0CccSMgXtRgN0jAjWel9jnR3ZoTv0O81kV8DqPb2VXSseRmof0Pl8YSOZy4FHz5vMc3xsxcX6uT10EzEoWo7B-nZQAHJJvBYhQJTT1LnJmpsa48nlgUWrMkThFrEIvZstjQ7Xdc5g%3D%3D]]
 
 &quot;//Shapley values are defined as the sequential impact of the model's output of observing each inputs feature's value, averaged over //all possible// feature orderings//&quot;
@@ -9821,6 +9967,15 @@ Results from game theory imply the Shapley values are the only way to satisfy th
 * Clustering using //local explanation embeddings//
 ** [img[|https://media.springernature.com/m312/springer-static/image/art%3A10.1038%2Fs42256-019-0138-9/MediaObjects/42256_2019_138_Fig6_HTML.png?as=webp]]
 </pre>
+</div>
+<div created="20210205105054303" modified="20210205105059777" title="Radcliffe2007">
+<pre>[ext[Using control groups to target on predicted lift: Building and assessing uplift models]]</pre>
+</div>
+<div created="20210205101750492" modified="20210205101803694" title="ScullyEtal2015">
+<pre>[[Hidden Technical Debt in Machine Learning Systems|https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf]]</pre>
+</div>
+<div created="20210205110511165" modified="20210205110634994" tags="churn" title="VerbekeEtal2012">
+<pre>[ext[New insights into churn prediction in the telecommunication sector: a profit driven data mining approach|https://www.sciencedirect.com/science/article/abs/pii/S0377221711008599?via%3Dihub]]</pre>
 </div>
 
 
